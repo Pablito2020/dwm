@@ -78,52 +78,56 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_m,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-    	{ MODKEY,                       XK_b,      spawn,          SHCMD("brave")},
-    	{ MODKEY,                       XK_s,      spawn,          SHCMD("spotify") },
+    { MODKEY,                       XK_b,      spawn,          SHCMD("brave")},
+    { MODKEY,                       XK_s,      spawn,          SHCMD("spotify") },
 	{ MODKEY,                       XK_i,      spawn,          SHCMD("remap_keyboard") },
 	{ MODKEY,                       XK_i,      spawn,          {.v = killdwmblockskeyboard } },
 	{ MODKEY,                       XK_f,      spawn,          SHCMD("pcmanfm") },
-	/*  { MODKEY|ShiftMask,             XK_Return, togglescratch,  {.ui = 0} },     */
+/*  { MODKEY|ShiftMask,             XK_Return, togglescratch,  {.ui = 0} },     */
 
-    	// Windows movements
-    	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
+    // Windows movements
+    { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_w,      killclient,     {0} },
 
-    	// Layouts 
+    // Layouts 
 	{ MODKEY,                       XK_Tab,    cyclelayout,    {.i = +1 } },
-	{ MODKEY,                       XK_space,  zoom,           {0} }, // Make current window the master
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} }, // Put in normal layout
-	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} }, // Hide status bar
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } }, // Change different layouts inside the layout (lol)
-	{ MODKEY|ShiftMask,             XK_d,      incnmaster,     {.i = +1 } }, // Same but different direction
-/*  	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },    */
-/*  	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },    */
+	{ MODKEY,                       XK_space,  zoom,           {0} },               // Make current window the master
+	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },               // Put in normal layout
+	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },               // Hide status bar
+	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },        // Change different layouts inside the layout (lol)
+	{ MODKEY|ShiftMask,             XK_d,      incnmaster,     {.i = +1 } },        // Same but different direction
+/*  { MODKEY,                       XK_0,      view,           {.ui = ~0 } },    */
+/* 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },    */
 
 	// Hardware Keys
-        { 0,                            XF86XK_AudioMute,spawn,    {.v = mutecmd } },
-        { 0,                            XF86XK_AudioMute,spawn,    {.v = killdwmblocks } },
-        { 0,                            XF86XK_AudioLowerVolume,spawn, {.v = voldowncmd } },
-        { 0,                            XF86XK_AudioLowerVolume,spawn, {.v = killdwmblocks } },
-        { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd } },
-        { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = killdwmblocks } },
-        { 0,                            XF86XK_AudioPrev,		spawn,		SHCMD("playerctl previous --player=spotify") },
+    { 0,                            XF86XK_AudioMute,spawn,    {.v = mutecmd } },
+    { 0,                            XF86XK_AudioMute,spawn,    {.v = killdwmblocks } },
+    { 0,                            XF86XK_AudioLowerVolume,spawn, {.v = voldowncmd } },
+    { 0,                            XF86XK_AudioLowerVolume,spawn, {.v = killdwmblocks } },
+    { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd } },
+    { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = killdwmblocks } },
+    { 0,                            XF86XK_AudioPrev,		spawn,		SHCMD("playerctl previous --player=spotify") },
 	{ 0,                            XF86XK_AudioNext,		spawn,		SHCMD("playerctl next --player=spotify") },
 	{ 0,                            XF86XK_AudioPause,		spawn,		SHCMD("playerctl play-pause --player=spotify") },
 	{ 0,                            XF86XK_AudioPlay,		spawn,		SHCMD("playerctl play-pause --player=spotify") },
 	{ 0,                            XF86XK_AudioStop,		spawn,		SHCMD("playerctl play-pause --player=spotify") },
 	{ 0,                            XK_Print,		        spawn,		SHCMD("screenshot") },
 
-    	// Tags
+    // Tags
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
+	TAGKEYS(                        XK_6,                      5)
+	TAGKEYS(                        XK_7,                      6)
+	TAGKEYS(                        XK_8,                      7)
+	TAGKEYS(                        XK_9,                      8)
 
-    	// Exit dwm
+    // Exit dwm
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 
 };
