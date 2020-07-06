@@ -11,8 +11,8 @@ static const int showsystray        = 1;     /* 0 means no systray */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "JetBrains Mono:size=12", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = { "JetBrains Mono:size=14", "JoyPixels:pixelsize=14:antialias=true:autohint=true" };
+static const char dmenufont[]       = "monospace:size=14";
 static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#363636";
 static const char col_gray3[]       = "#bbbbbb";
@@ -114,6 +114,8 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioPause,		spawn,		SHCMD("playerctl play-pause --player=spotify") },
 	{ 0,                            XF86XK_AudioPlay,		spawn,		SHCMD("playerctl play-pause --player=spotify") },
 	{ 0,                            XF86XK_AudioStop,		spawn,		SHCMD("playerctl play-pause --player=spotify") },
+	{ 0,                            XF86XK_MonBrightnessUp ,	spawn,		SHCMD("brightnessctl set +5%") },
+	{ 0,                            XF86XK_MonBrightnessDown ,	spawn,		SHCMD("brightnessctl set 5%-") },
 	{ 0,                            XK_Print,		        spawn,		SHCMD("screenshot") },
 
     // Tags
