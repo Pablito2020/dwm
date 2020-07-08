@@ -18,10 +18,16 @@ static const char col_gray2[]       = "#363636";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#ffffff";
 static const char col_cyan[]        = "#005577";
+static const char gruvbox_norm_foreground[]       = "#ebdbb2";
+static const char gruvbox_norm_background[]       = "#1d2021";
+static const char gruvbox_selection_foreground[]  = "#eeeeee";
+static const char gruvbox_selection_background[]  = "#fb4934";
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_gray2, col_gray4  },
+	[SchemeNorm] = { gruvbox_norm_foreground, gruvbox_norm_background, col_gray4 },
+	[SchemeSel]  = { gruvbox_selection_foreground, gruvbox_selection_background, col_gray4  },
+    [SchemeTitle]  = { gruvbox_selection_background, gruvbox_norm_background,  gruvbox_selection_background  },
 };
 
 /* tagging */
