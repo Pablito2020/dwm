@@ -2,10 +2,11 @@
 #include <X11/XF86keysym.h> // Necessary for hardware keys (volume keys)
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
-static const unsigned int systrayspacing = 2;   /* systray spacing */ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
+static const unsigned int systrayspacing = 0;   /* systray spacing */ 
+static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -24,8 +25,8 @@ static const char gruvbox_selection_background[]  = "#fb4934";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { gruvbox_norm_foreground, gruvbox_norm_background, col_gray4 },
-	[SchemeSel]  = { gruvbox_selection_foreground, gruvbox_selection_background, col_gray4  },
+	[SchemeNorm] = { gruvbox_norm_foreground, gruvbox_norm_background, col_gray2 },
+	[SchemeSel]  = { gruvbox_selection_foreground, gruvbox_selection_background, gruvbox_selection_background  },
     [SchemeTitle]  = { gruvbox_selection_background, gruvbox_norm_background,  gruvbox_selection_background  },
 };
 
