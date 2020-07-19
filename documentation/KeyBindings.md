@@ -28,6 +28,4 @@
     + (Mod + space) --> Make the current window the master.
     + (Mod + d) and (Mod + shift + d) --> change different layouts inside the "dynamic" layout
 
-+ Status Bar
-    + (Mod + shift + b) --> hide status bar
 
