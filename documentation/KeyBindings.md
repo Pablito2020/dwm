@@ -32,6 +32,8 @@
 | **mod + i**         | change keyboard input|
 | **mod + p**         | sound control        |
 | **mod + s**         | spotify              |
+| **mod + r**         | redshift on          |
+| **mod + shift + r** | redshift off         |
 | **mod + g**         | mail                 |
 | **mod + shift + g** | github page          |
 

@@ -92,6 +92,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("pavucontrol") },
 	{ MODKEY,                       XK_g,      spawn,          SHCMD("brave https://mail.google.com/mail/u/0/#inbox") },
 	{ MODKEY|ShiftMask,             XK_g,      spawn,          SHCMD("brave https://www.github.com/pablito2020") },
+	{ MODKEY,                       XK_r,      spawn,          SHCMD("redshift -O 2400") },
+	{ MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("redshift -x") },
 /*  { MODKEY|ShiftMask,             XK_Return, togglescratch,  {.ui = 0} },     */
 
     // Windows movements
