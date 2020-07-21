@@ -94,6 +94,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_g,      spawn,          SHCMD("brave https://www.github.com/pablito2020") },
 	{ MODKEY,                       XK_r,      spawn,          SHCMD("redshift -O 2400") },
 	{ MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("redshift -x") },
+	{ MODKEY,                       XK_e,      spawn,          SHCMD("~/scripts/dmenu/unicode") },
 /*  { MODKEY|ShiftMask,             XK_Return, togglescratch,  {.ui = 0} },     */
 
     // Windows movements
