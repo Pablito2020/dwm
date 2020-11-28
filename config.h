@@ -12,27 +12,34 @@ static const int showsystray        = 1;     /* 0 means no systray */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "JetBrains Mono:size=12", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
+static const char *fonts[]          = { "JetBrains Mono:size=12", "JoyPixels:pixelsize=12:antialias=true:autohint=true", "UbuntuMono Nerd Font:size=12:weight=bold:antialias=true:autohint:true"};
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#363636";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#ffffff";
 static const char col_cyan[]        = "#005577";
+
 static const char gruvbox_norm_foreground[]       = "#ebdbb2";
 static const char gruvbox_norm_background[]       = "#1d2021";
 static const char gruvbox_selection_foreground[]  = "#eeeeee";
 static const char gruvbox_selection_background[]  = "#fb4934";
 
+static const char tokyo_norm_foreground[]       = "#a9b1d6";
+static const char tokyo_norm_background[]       = "#3b3d57";
+static const char tokyo_selection_foreground[]  = "#eeeeee";
+static const char tokyo_selection_background[]  = "#ff7a93";
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { gruvbox_norm_foreground, gruvbox_norm_background, col_gray2 },
-	[SchemeSel]  = { gruvbox_selection_foreground, gruvbox_selection_background, gruvbox_selection_background  },
-    [SchemeTitle]  = { gruvbox_selection_background, gruvbox_norm_background,  gruvbox_selection_background  },
+	[SchemeNorm] = { tokyo_norm_foreground,      tokyo_norm_background,         col_gray2 },
+	[SchemeSel]  = { tokyo_selection_foreground, tokyo_selection_background,    tokyo_selection_background  },
+    [SchemeTitle]  = { tokyo_selection_background, tokyo_norm_background,   tokyo_selection_background  },
 };
 
+
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -88,6 +95,7 @@ static Key keys[] = {
     { MODKEY,                       XK_b,      spawn,          SHCMD("brave")},
     { MODKEY,                       XK_s,      spawn,          SHCMD("spotify") },
 	{ MODKEY,                       XK_i,      spawn,          SHCMD("remap_keyboard") },
+	{ MODKEY|ShiftMask,             XK_i,      spawn,          SHCMD("setxkbmap -option caps:escape") },
 	{ MODKEY,                       XK_i,      spawn,          {.v = killdwmblockskeyboard } },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("pcmanfm") },
 	{ MODKEY,                       XK_f,      spawn,          SHCMD("alacritty -e lf") },
@@ -97,6 +105,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_r,      spawn,          SHCMD("redshift -O 2400") },
 	{ MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("redshift -x") },
     { MODKEY,                       XK_e,      spawn,          SHCMD("~/scripts/dmenu/unicode") },
+    { MODKEY|ShiftMask,             XK_Return, spawn,          SHCMD("alacritty -e fzf_show") },
 /*  { MODKEY|ShiftMask,             XK_Return, togglescratch,  {.ui = 0} },     */
 
     // Windows movements
