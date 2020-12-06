@@ -37,9 +37,18 @@ static const char *colors[][3]      = {
     [SchemeTitle]  = { tokyo_selection_background, tokyo_norm_background,   tokyo_selection_background  },
 };
 
+typedef struct {
+	const char *name;
+	const void *cmd;
+} Sp;
+const char *spcmd1[] = {"alacritty","--class", "spterm", "-d", "120", "34", NULL };
+static Sp scratchpads[] = {
+	/* name          cmd  */
+	{"spterm",      spcmd1},
+};
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -50,6 +59,7 @@ static const Rule rules[] = {
 	{ "Gimp",    	NULL,     NULL,           0,         1,          0,           0,        -1 },
 	{ "Firefox", 	NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
 	{ "Alacritty",  NULL,     NULL,           0,         0,          1,           0,        -1 },
+    { NULL,      "spterm",    NULL,       	    SPTAG(0),     1,           1,         0,        -1 },
 	{ NULL,      	NULL,     "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
 };
 
@@ -106,7 +116,11 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("redshift -x") },
     { MODKEY,                       XK_e,      spawn,          SHCMD("~/scripts/dmenu/unicode") },
     { MODKEY|ShiftMask,             XK_Return, spawn,          SHCMD("alacritty -e fzf_show") },
-/*  { MODKEY|ShiftMask,             XK_Return, togglescratch,  {.ui = 0} },     */
+
+    // Scratchpad
+	{ MODKEY,            			XK_y,  	   togglescratch,  {.ui = 0 } },
+	/* { MODKEY,            			XK_u,	   togglescratch,  {.ui = 1 } }, */
+	/* { MODKEY,            			XK_x,	   togglescratch,  {.ui = 2 } }, */
 
     // Windows movements
     { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
