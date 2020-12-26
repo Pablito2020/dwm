@@ -2,7 +2,7 @@
 #include <X11/XF86keysym.h> // Necessary for hardware keys (volume keys)
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -34,7 +34,6 @@ static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { tokyo_norm_foreground,      tokyo_norm_background,         col_gray2 },
 	[SchemeSel]  = { tokyo_selection_foreground, tokyo_selection_background,    tokyo_selection_background  },
-    [SchemeTitle]  = { tokyo_selection_background, tokyo_norm_background,   tokyo_selection_background  },
 };
 
 typedef struct {
@@ -59,7 +58,7 @@ static const Rule rules[] = {
 	{ "Gimp",    	NULL,     NULL,           0,         1,          0,           0,        -1 },
 	{ "Firefox", 	NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
 	{ "Alacritty",  NULL,     NULL,           0,         0,          1,           0,        -1 },
-    { NULL,      "spterm",    NULL,       	    SPTAG(0),     1,           1,         0,        -1 },
+    { NULL,      "spterm",    NULL,       	  SPTAG(0),  1,          1,           0,        -1 },
 	{ NULL,      	NULL,     "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
 };
 
@@ -84,7 +83,7 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
-#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+#define SHCMD(cmd) { .v = (const char*[]){ "/bin/zsh", "-c", cmd, NULL } }
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -175,7 +174,6 @@ static Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
-	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
