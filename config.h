@@ -4,7 +4,7 @@
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const unsigned int gappx     = 5;        /* gaps between windows */
+static const unsigned int gappx     = 1;        /* gaps between windows */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 0;   /* systray spacing */ 
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
@@ -12,7 +12,7 @@ static const int showsystray        = 1;     /* 0 means no systray */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "JetBrains Mono:size=12", "JoyPixels:pixelsize=12:antialias=true:autohint=true", "UbuntuMono Nerd Font:size=12:weight=bold:antialias=true:autohint:true"};
+static const char *fonts[]          = { "mononoki Nerd Font:size=14", "JoyPixels:pixelsize=14:antialias=true:autohint=true", "UbuntuMono Nerd Font:size=14:weight=bold:antialias=true:autohint:true"};
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#363636";
@@ -20,15 +20,10 @@ static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#ffffff";
 static const char col_cyan[]        = "#005577";
 
-static const char gruvbox_norm_foreground[]       = "#ebdbb2";
-static const char gruvbox_norm_background[]       = "#1d2021";
-static const char gruvbox_selection_foreground[]  = "#eeeeee";
-static const char gruvbox_selection_background[]  = "#fb4934";
-
-static const char tokyo_norm_foreground[]       = "#a9b1d6";
-static const char tokyo_norm_background[]       = "#3b3d57";
-static const char tokyo_selection_foreground[]  = "#eeeeee";
-static const char tokyo_selection_background[]  = "#ff7a93";
+static const char tokyo_norm_foreground[]       = "#ffffff";
+static const char tokyo_norm_background[]       = "#000000";
+static const char tokyo_selection_foreground[]  = "#000000";
+static const char tokyo_selection_background[]  = "#ffffff";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -40,14 +35,14 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-const char *spcmd1[] = {"alacritty","--class", "spterm", "-d", "120", "34", NULL };
+const char *spcmd1[] = {"alacritty","--class", "spterm", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+static const char *tags[] = { "", "", "", "", "", "﮸", "ﭮ", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -69,9 +64,9 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "[]",      tile },    /* first entry is default */
+	{ "[]",      NULL },    /* no layout function means floating behavior */
+	{ "[]",      monocle },
 };
 
 /* key definitions */
@@ -100,21 +95,22 @@ static const char *killdwmblockskeyboard[] = {"pkill","-RTMIN+12", "dwmblocks", 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_m,      spawn,          {.v = dmenucmd } },
+    { MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("mbsync -a && alacritty -e neomutt") },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-    { MODKEY,                       XK_b,      spawn,          SHCMD("brave")},
-    { MODKEY,                       XK_s,      spawn,          SHCMD("spotify") },
+    { MODKEY,                       XK_b,      spawn,          SHCMD("chromium")},
+    { MODKEY,                       XK_s,      spawn,          SHCMD("alacritty -e spt") },
 	{ MODKEY,                       XK_i,      spawn,          SHCMD("remap_keyboard") },
 	{ MODKEY|ShiftMask,             XK_i,      spawn,          SHCMD("setxkbmap -option caps:escape") },
 	{ MODKEY,                       XK_i,      spawn,          {.v = killdwmblockskeyboard } },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("pcmanfm") },
 	{ MODKEY,                       XK_f,      spawn,          SHCMD("alacritty -e lf") },
-	{ MODKEY,                       XK_p,      spawn,          SHCMD("pavucontrol") },
-	{ MODKEY,                       XK_g,      spawn,          SHCMD("brave https://mail.google.com/mail/u/0/#inbox") },
-	{ MODKEY|ShiftMask,             XK_g,      spawn,          SHCMD("brave https://www.github.com/pablito2020") },
+	{ MODKEY,                       XK_p,      spawn,          SHCMD("passmenu -c -l 50") },
 	{ MODKEY,                       XK_r,      spawn,          SHCMD("redshift -O 2400") },
 	{ MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("redshift -x") },
-    { MODKEY,                       XK_e,      spawn,          SHCMD("~/scripts/dmenu/unicode") },
+    { MODKEY,                       XK_e,      spawn,          SHCMD("unicode") },
     { MODKEY|ShiftMask,             XK_Return, spawn,          SHCMD("alacritty -e fzf_show") },
+    { MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("work-xorg") },
+
 
     // Scratchpad
 	{ MODKEY,            			XK_y,  	   togglescratch,  {.ui = 0 } },
